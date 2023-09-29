@@ -6,7 +6,7 @@
   <div class="row g-3 aling-items-center mb-3">
 
     <div class="col-auto">
-      <label>Nombre:</label>
+      <label>Email:</label>
     </div>
 
     <div class="col-auto">
@@ -15,7 +15,8 @@
 
     <div class="col-auto">
       <span customLabel
-      [color]="color">
+      [color]="color"
+      [errors]="myForm.get('name')?.errors">
         Temporal
     </span>
     </div>
