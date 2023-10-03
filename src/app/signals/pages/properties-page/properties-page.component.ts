@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { User } from '../../interfaces/user-request.interface';
 
 @Component({
@@ -7,6 +7,8 @@ import { User } from '../../interfaces/user-request.interface';
 })
 
 export class PropertiesPageComponent {
+
+  public counter = signal(10);
 
   public user = signal<User>({
     "id": 1,
@@ -17,6 +19,10 @@ export class PropertiesPageComponent {
   });
 
   public fullName = computed(() => `${this.user().first_name} ${this.user().last_name}`)
+
+  public userChangedEffect = effect(() => {
+    console.log(`${this.user().first_name} - ${this.counter()}`)
+  });
 
   onFileUpdated(field: keyof User, value: string) {
 
@@ -44,6 +50,10 @@ export class PropertiesPageComponent {
 
     })
 
+  }
+
+  increaseBy(value: number) {
+    this.counter.update(current => current + value);
   }
 
 }
