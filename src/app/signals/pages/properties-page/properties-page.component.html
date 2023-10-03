@@ -9,27 +9,32 @@
     #txtEmail
     type="text"
     class="form-control mb-2"
-    (input)="onFileUpdated('email', txtEmail.value)">
+    (input)="onFileUpdated('email', txtEmail.value)"
+    [value]="user().email">
 
     <input
     #txtFirstName
     type="text"
     class="form-control mb-2"
-    (input)="onFileUpdated('first_name', txtFirstName.value)">
+    (input)="onFileUpdated('first_name', txtFirstName.value)"
+    [value]="user().first_name">
 
     <input
     #txtLastName
     type="text"
     class="form-control mb-2"
-    (input)="onFileUpdated('last_name', txtLastName.value)">
+    (input)="onFileUpdated('last_name', txtLastName.value)"
+    [value]="user().last_name">
 
   </div>
 
   <div class="col-6">
 
     <pre>
-      {{'asd'}}
+      {{user() | json}}
     </pre>
+
+    {{fullName()}}
 
   </div>
 
