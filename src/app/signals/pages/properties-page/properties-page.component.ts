@@ -4,6 +4,11 @@ import { Component } from '@angular/core';
   templateUrl: './properties-page.component.html',
   styleUrls: ['./properties-page.component.css']
 })
+
 export class PropertiesPageComponent {
+
+  onFileUpdated(field: string, value: string) {
+
+  }
 
 }
